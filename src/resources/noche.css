@@ -1,0 +1,72 @@
+.main{
+    -fx-text-fill: white;
+    -fx-background-color:grey;
+}
+
+#ficheroLabel{
+    -fx-text-fill: white;
+    
+}
+#btnSunMoon{
+    -fx-border-color: white;
+    
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab-pane
+{
+    /*-fx-tab-min-width:90px;*/
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+.tab-pane .tab
+{   /*Gris*/
+    -fx-background-color: #e6e6e6;
+
+}
+
+.tab-pane .tab:selected
+{   /*Negro*/
+    -fx-background-color: #3c3c3c;
+}
+
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+    /*Gris oscuro*/
+    -fx-text-fill: #828282;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    /*Verde oliva*/
+    -fx-text-fill: #96b946;
+}
+
+.labelTitle{
+    -fx-text-fill: white;
+    
+}
+
+.chart-title {
+  -fx-text-fill: white;
+  -fx-font-size: 1.6em;
+}
+
+.axis {
+    /*Numeros*/
+    -fx-tick-label-fill: white;
+    -fx-font-size: 1.4em; 
+}
+.chart-alternative-row-fill {
+    -fx-fill: lightgray;
+    -fx-stroke: transparent;
+    -fx-stroke-width: 0;
+}
+ 
