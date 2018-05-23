@@ -201,6 +201,7 @@ public class FXMLDocumentController implements Initializable {
         labelLONG.getStyleClass().add("labelTitle");
         labelModo.getStyleClass().add("labelTitle");
         
+        
 
 //</editor-fold>
 
