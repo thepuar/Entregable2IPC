@@ -166,6 +166,8 @@ public class FXMLDocumentController implements Initializable {
     private Label labelLONG;
     @FXML
     private Label labelSOG;
+    @FXML
+    private Label labelModo;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -187,6 +189,7 @@ public class FXMLDocumentController implements Initializable {
         cogLabel.getStyleClass().add("labelTitle");
         cogLabel1.getStyleClass().add("labelTitle");
         sogLabel.getStyleClass().add("labelTitle");
+        labelSOG.getStyleClass().add("labelTitle");
         labelHDG.getStyleClass().add("labelTitle");
         labelTWS.getStyleClass().add("labelTitle");
         labelTWD.getStyleClass().add("labelTitle");
@@ -196,8 +199,11 @@ public class FXMLDocumentController implements Initializable {
         labelLAT.getStyleClass().add("labelTitle");
         labelCOG.getStyleClass().add("labelTitle");
         labelLONG.getStyleClass().add("labelTitle");
+        labelModo.getStyleClass().add("labelTitle");
+        
 
 //</editor-fold>
+
         Double aux = Double.parseDouble(sliderTWS.getValue() + "");
         sizeTWS = aux.intValue() * crecimiento;
         aux = Double.parseDouble(sliderTWD.getValue() + "");
@@ -318,29 +324,31 @@ public class FXMLDocumentController implements Initializable {
         model.LATProperty().addListener((a, b, c) -> {
             String dat = String.valueOf(c);
             Platform.runLater(() -> {
-                latLabel.setText(String.format("%.5f", Double.parseDouble(dat)) + "º");
+                latLabel.setText(((String)String.format("%.5f", Double.parseDouble(dat)) + "º").replace(",", "."));
             });
         });
 
         model.LONProperty().addListener((a, b, c) -> {
             String dat = String.valueOf(c);
             Platform.runLater(() -> {
-                lonLabel.setText(String.format("%.5f", Double.parseDouble(dat)) + "º");
+                lonLabel.setText(((String)String.format("%.5f", Double.parseDouble(dat)) + "º").replace(",", "."));
             });
         });
 
         model.COGProperty().addListener((a, b, c) -> {
             String dat = String.valueOf(c);
             Platform.runLater(() -> {
-                cogLabel.setText(String.format("%.2f", Double.parseDouble(dat)) + "º");
-                cogLabel1.setText(dat);
+                String conversor = String.format("%.2f", Double.parseDouble(dat)) + "º";
+                conversor = conversor.replace(",", ".");
+                cogLabel.setText(conversor);
+                cogLabel1.setText(conversor);
             });
         });
 
         model.SOGProperty().addListener((a, b, c) -> {
             String dat = String.valueOf(c);
             Platform.runLater(() -> {
-                sogLabel.setText(String.format("%.2f", Double.parseDouble(dat)) + "Kn");
+                sogLabel.setText(((String)String.format("%.2f", Double.parseDouble(dat)) + "Kn").replace(",", "."));
             });
         });
     }
@@ -377,7 +385,7 @@ public class FXMLDocumentController implements Initializable {
         if (ficheroNMEA != null) {
             // NO se comprueba que se trata de un fichero de datos NMEA
             // esto es una demos
-            ficheroLabel.setText("fichero: " + ficheroNMEA.getName());
+            ficheroLabel.setText("Fichero: " + ficheroNMEA.getName());
 
             model.addSentenceReader(ficheroNMEA);
         }
@@ -389,8 +397,7 @@ public class FXMLDocumentController implements Initializable {
         if (boolday) {
             //Es de dia -> Cambiar a noche
             boolday = false;
-
-            System.out.println("Cambiando a noche");
+            labelModo.setText("Modo Noche");
             try {
                 vboxmain.getStylesheets().clear();
                 vboxmain.getStylesheets().add("resources/noche.css");
@@ -404,7 +411,7 @@ public class FXMLDocumentController implements Initializable {
 
         } else {
             boolday = true;
-            System.out.println("Cambiando a dia");
+            labelModo.setText("Modo Dia");
             try {
                 vboxmain.getStylesheets().clear();
                 vboxmain.getStylesheets().add("resources/style.css");

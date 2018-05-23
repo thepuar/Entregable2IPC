@@ -27,7 +27,6 @@
 .tab-pane .tab
 {   /*Gris*/
     -fx-background-color: #e6e6e6;
-
 }
 
 .tab-pane .tab:selected
@@ -51,7 +50,6 @@
 
 .labelTitle{
     -fx-text-fill: white;
-    
 }
 
 .chart-title {

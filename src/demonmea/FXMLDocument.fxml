@@ -20,31 +20,42 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vboxmain" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" spacing="8.0" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="demonmea.FXMLDocumentController">
+<VBox fx:id="vboxmain" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" spacing="8.0" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="demonmea.FXMLDocumentController">
    <children>
-      <TabPane prefHeight="291.0" prefWidth="576.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tabClosingPolicy="UNAVAILABLE" tabMinHeight="40.0" tabMinWidth="72.0" VBox.vgrow="ALWAYS">
         <tabs>
-            <Tab text="CARGAR">
+            <Tab text="INICIO">
                <content>
-                  <VBox alignment="CENTER" prefHeight="222.0" prefWidth="576.0" spacing="10.0">
+                  <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="10.0">
                      <children>
+                        <Label fx:id="labelModo" layoutX="364.0" layoutY="317.0" text="Modo dia">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="60.0" />
+                           </VBox.margin>
+                        </Label>
                         <Button fx:id="btnSunMoon" mnemonicParsing="false" onAction="#changeStyle" prefHeight="60.0" prefWidth="60.0">
                            <graphic>
-                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView accessibleText="Modio dia/noche" fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../resources/sunmoon.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
-                          <Button fx:id="button" minHeight="-Infinity" minWidth="-Infinity" onAction="#cargarFichero" prefHeight="37.0" prefWidth="89.0" text="cargar">
+                          <Button fx:id="button" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" onAction="#cargarFichero" prefHeight="37.0" prefWidth="89.0" text="Cargar">
                            <font>
                               <Font size="16.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
                         </Button>
-                          <Label fx:id="ficheroLabel" minHeight="16" minWidth="69" prefHeight="60.0" prefWidth="551.0" text="fichero:" textAlignment="CENTER">
+                          <Label fx:id="ficheroLabel" minHeight="16" minWidth="69" text="Fichero:" textAlignment="CENTER" VBox.vgrow="ALWAYS">
                            <padding>
-                              <Insets left="5.0" />
+                              <Insets left="150.0" right="150.0" top="10.0" />
                            </padding>
                            <font>
                               <Font size="18.0" />
@@ -118,9 +129,9 @@
           </Tab>
           <Tab text="MWV-XDR">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="576.0">
+              <AnchorPane>
                      <children>
-                        <GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="252.0" prefWidth="576.0" vgap="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0">
+                        <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="NEVER" maxWidth="313.0" minWidth="94.0" prefWidth="285.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="281.0" />
@@ -132,22 +143,22 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Label fx:id="labelAWA" alignment="CENTER" prefHeight="47.0" prefWidth="297.0" text="AWA">
+                              <Label fx:id="labelAWA" alignment="CENTER" prefHeight="47.0" prefWidth="297.0" text="AWA" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="awaLabel" alignment="CENTER" prefHeight="47.0" prefWidth="300.0" text="---º" textFill="#4f0fee" GridPane.rowIndex="1">
+                              <Label fx:id="awaLabel" alignment="CENTER" prefHeight="47.0" prefWidth="300.0" text="---º" textFill="#4f0fee" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="32.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="labelAWS" alignment="CENTER" prefHeight="47.0" prefWidth="300.0" text="AWS" GridPane.columnIndex="1">
+                              <Label fx:id="labelAWS" alignment="CENTER" prefHeight="47.0" prefWidth="300.0" text="AWS" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="awsLabel" alignment="CENTER" prefHeight="47.0" prefWidth="300.0" text="--.-- Kn" textFill="#4f0fee" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Label fx:id="awsLabel" alignment="CENTER" prefHeight="47.0" prefWidth="300.0" text="--.-- Kn" textFill="#4f0fee" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <font>
                                     <Font size="32.0" />
                                  </font>
@@ -162,7 +173,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="576.0">
                      <children>
-                        <GridPane alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="252.0" prefWidth="576.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="10.0">
+                        <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="NEVER" maxWidth="313.0" minWidth="94.0" prefWidth="285.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="281.0" />
@@ -224,7 +235,7 @@
                <content>
                <VBox>
                  <children>
-                  <LineChart fx:id="lineChartTWD" prefHeight="227.0" prefWidth="576.0">
+                  <LineChart fx:id="lineChartTWD" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                     <xAxis>
                       <CategoryAxis fx:id="categoryAxisTWD" prefHeight="0.0" prefWidth="519.0" side="BOTTOM" />
                     </xAxis>
@@ -232,7 +243,10 @@
                       <NumberAxis fx:id="numberAxisTWD" side="LEFT" />
                     </yAxis>
                   </LineChart>
-                        <Slider fx:id="sliderTWD" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" min="2.0" minorTickCount="0" prefHeight="27.0" prefWidth="576.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" />
+                        <Slider fx:id="sliderTWD" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" maxHeight="50.0" maxWidth="1.7976931348623157E308" min="2.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin></Slider>
                  </children>
                </VBox>
             </content>
@@ -242,7 +256,7 @@
                <content>
                    <VBox>
                  <children>
-                  <LineChart fx:id="lineChartTWS" prefHeight="262.0" prefWidth="598.0">
+                  <LineChart fx:id="lineChartTWS" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                      <xAxis>
                         <CategoryAxis fx:id="categoryAxisTWS" prefHeight="0.0" prefWidth="519.0" side="BOTTOM" />
                      </xAxis>
@@ -250,7 +264,10 @@
                         <NumberAxis fx:id="numberAxisTWS" side="LEFT" />
                      </yAxis>
                   </LineChart>
-                        <Slider fx:id="sliderTWS" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" min="2.0" minorTickCount="0" prefHeight="27.0" prefWidth="576.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0" />
+                        <Slider fx:id="sliderTWS" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" maxHeight="50.0" maxWidth="1.7976931348623157E308" min="2.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="10.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                           </VBox.margin></Slider>
                  </children>
                </VBox>
                   
@@ -258,25 +275,37 @@
             </Tab>
             <Tab text="PITCH-ROLL">
                <content>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                      <children>
-                        <HBox prefHeight="230.0" prefWidth="576.0">
+                        <HBox VBox.vgrow="ALWAYS">
                            <children>
                               <PieChart fx:id="chartPITCH" title="PITCH" />
                               <PieChart fx:id="chartROLL" title="ROLL" />
                            </children>
                         </HBox>
-                        <HBox prefHeight="27.0" prefWidth="576.0">
+                        <HBox alignment="CENTER" minHeight="100.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="pitchLabel" alignment="CENTER" prefHeight="47.0" prefWidth="304.0" text="---º" textFill="#4f0fee">
+                              <Label fx:id="pitchLabel" alignment="CENTER" text="---º" textFill="#4f0fee" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets right="170.0" />
+                                 </padding>
                               </Label>
-                              <Label fx:id="rollLabel" alignment="CENTER" prefHeight="47.0" prefWidth="300.0" text="---º" textFill="#4f0fee">
+                              <Label fx:id="rollLabel" alignment="CENTER" text="---º" textFill="#4f0fee" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="170.0" />
+                                 </padding>
                               </Label>
                            </children>
                         </HBox>
@@ -286,25 +315,37 @@
             </Tab>
             <Tab text="HDG-COG">
                <content>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox>
                      <children>
-                        <HBox prefHeight="230.0" prefWidth="576.0">
+                        <HBox VBox.vgrow="ALWAYS">
                            <children>
                               <PieChart fx:id="chartHDG" title="HDG" />
                               <PieChart fx:id="chartCOG" title="COG" />
                            </children>
                         </HBox>
-                        <HBox prefHeight="27.0" prefWidth="576.0">
+                        <HBox alignment="CENTER" minHeight="100.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="hdgLabel1" alignment="CENTER" prefHeight="47.0" prefWidth="304.0" text="---º" textFill="#4f0fee">
+                              <Label fx:id="hdgLabel1" alignment="CENTER" text="---º" textFill="#4f0fee">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets right="170.0" />
+                                 </padding>
                               </Label>
-                              <Label fx:id="cogLabel1" alignment="CENTER" prefHeight="47.0" prefWidth="300.0" text="---º" textFill="#4f0fee">
+                              <Label fx:id="cogLabel1" alignment="CENTER" text="---º" textFill="#4f0fee">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="170.0" />
+                                 </padding>
                               </Label>
                            </children>
                         </HBox>
@@ -314,25 +355,37 @@
             </Tab>
             <Tab text="TWD-AWA">
                <content>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox>
                      <children>
-                        <HBox prefHeight="230.0" prefWidth="576.0">
+                        <HBox VBox.vgrow="ALWAYS">
                            <children>
                               <PieChart fx:id="chartTWD" title="TWD" />
                               <PieChart fx:id="chartAWA" title="AWA" />
                            </children>
                         </HBox>
-                        <HBox prefHeight="27.0" prefWidth="576.0">
+                        <HBox alignment="CENTER" minHeight="100.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label fx:id="twdLabel1" alignment="CENTER" prefHeight="47.0" prefWidth="304.0" text="---º" textFill="#4f0fee">
+                              <Label fx:id="twdLabel1" alignment="CENTER" text="---º" textFill="#4f0fee" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets right="170.0" />
+                                 </padding>
                               </Label>
-                              <Label fx:id="awaLabel1" alignment="CENTER" prefHeight="47.0" prefWidth="300.0" text="---º" textFill="#4f0fee">
+                              <Label fx:id="awaLabel1" alignment="CENTER" text="---º" textFill="#4f0fee" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="170.0" />
+                                 </padding>
                               </Label>
                            </children>
                         </HBox>
